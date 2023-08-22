@@ -1,0 +1,10 @@
+schema:
+  name: belb
+  postgresql_tablespace: null
+db:
+  user: me
+  pwd: secret
+  host: localhost
+  db_name: postgres
+  dialect: sqlite
+  driver: pysqlite
