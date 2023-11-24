@@ -9,6 +9,7 @@ to train and evaluate biomedical entity linking models.
 
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
+- [Citing](#citing)
 - [Data](#data)
   - [Knowledge Bases](#knowledge-bases)
   - [Corpora](#corpora)
@@ -26,36 +27,55 @@ to train and evaluate biomedical entity linking models.
 
 <!-- mdformat-toc end -->
 
+## Citing<a name="citing"></a>
+
+If you use BELB in your work, please cite:
+
+```
+@article{10.1093/bioinformatics/btad698,
+    author = {Garda, Samuele and Weber-Genzel, Leon and Martin, Robert and Leser, Ulf},
+    title = {{BELB}: a {B}iomedical {E}ntity {L}inking {B}enchmark},
+    journal = {Bioinformatics},
+    pages = {btad698},
+    year = {2023},
+    month = {11},
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btad698},
+    url = {https://doi.org/10.1093/bioinformatics/btad698},
+    eprint = {https://academic.oup.com/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btad698/53483107/btad698.pdf},
+}
+```
+
 ## Data<a name="data"></a>
 
 ### Knowledge Bases<a name="knowledge-bases"></a>
 
 | Corpus               | Entity    | Public | Versioned | Website                                                      | Download                                                                                                                     |
 | -------------------- | --------- | ------ | --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| NCBI Gene            | Gene      | ✅      | ❌         | [homepage](https://www.ncbi.nlm.nih.gov/gene)                | [kb](https://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz), [history](https://ftp.ncbi.nih.gov/gene/DATA/gene_history.gz)         |
-| NCBI Taxonomy        | Species   | ✅      | ❌         | [homepage](https://www.ncbi.nlm.nih.gov/taxonomy)            | [kb, history](https://ftp.ncbi.nih.gov/pub/taxonomy/)                                                                        |
-| CTD Diseases (MEDIC) | Disease   | ✅      | ❌         | [homepage](https://ctdbase.org/)                             | [kb](http://ctdbase.org/downloads/#alldiseases)                                                                              |
-| CTD Chemicals        | Chemical  | ✅      | ❌         | [homepage](https://ctdbase.org/)                             | [kb](http://ctdbase.org/downloads/#allchems)                                                                                 |
-| dbSNP                | Variant   | ✅      | ✅         | [homepage](https://www.ncbi.nlm.nih.gov/snp/)                | [kb,history](ftp://ftp.ncbi.nlm.nih.gov/snp/redesign/latest_release/JSON)                                                    |
-| Cellosaurus          | Cell line | ✅      | ❌         | [homepage](https://www.cellosaurus.org/)                     | [kb](https://ftp.expasy.org/databases/cellosaurus/cellosaurus.txt), [history](https://ftp.expasy.org/databases/cellosaurus/) |
-| UMLS                 | General   | ❌      | ✅         | [homepage](https://www.nlm.nih.gov/research/umls/index.html) | -                                                                                                                            |
+| NCBI Gene            | Gene      | ✅     | ❌        | [homepage](https://www.ncbi.nlm.nih.gov/gene)                | [kb](https://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz), [history](https://ftp.ncbi.nih.gov/gene/DATA/gene_history.gz)         |
+| NCBI Taxonomy        | Species   | ✅     | ❌        | [homepage](https://www.ncbi.nlm.nih.gov/taxonomy)            | [kb, history](https://ftp.ncbi.nih.gov/pub/taxonomy/)                                                                        |
+| CTD Diseases (MEDIC) | Disease   | ✅     | ❌        | [homepage](https://ctdbase.org/)                             | [kb](http://ctdbase.org/downloads/#alldiseases)                                                                              |
+| CTD Chemicals        | Chemical  | ✅     | ❌        | [homepage](https://ctdbase.org/)                             | [kb](http://ctdbase.org/downloads/#allchems)                                                                                 |
+| dbSNP                | Variant   | ✅     | ✅        | [homepage](https://www.ncbi.nlm.nih.gov/snp/)                | [kb,history](ftp://ftp.ncbi.nlm.nih.gov/snp/redesign/latest_release/JSON)                                                    |
+| Cellosaurus          | Cell line | ✅     | ❌        | [homepage](https://www.cellosaurus.org/)                     | [kb](https://ftp.expasy.org/databases/cellosaurus/cellosaurus.txt), [history](https://ftp.expasy.org/databases/cellosaurus/) |
+| UMLS                 | General   | ❌     | ✅        | [homepage](https://www.nlm.nih.gov/research/umls/index.html) | -                                                                                                                            |
 
 ### Corpora<a name="corpora"></a>
 
 | Corpus                   | Entity                 | Public | Website                                                                                                                                            | Download                                                                                                             |
 | ------------------------ | ---------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| GNormPLus (improved BC2) | Gene                   | ✅      | [homepage](https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/gnormplus/)                                                                          | [link](https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/download/GNormPlus/GNormPlusCorpus.zip)              |
-| NLM-Gene                 | Gene                   | ✅      | [homepage](https://pubmed.ncbi.nlm.nih.gov/33839304/)                                                                                              | [link](ftp://ftp.ncbi.nlm.nih.gov/pub/lu/NLMGene)                                                                    |
-| NCBI-Disease             | Disease                | ✅      | [homepage](https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/)                                                                                | [link](https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/NCBI_corpus.zip)                                       |
-| BC5CDR                   | Disease, Chemical      | ✅      | [homepage](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-3-cdr/)                                                           | [link](https://biocreative.bioinformatics.udel.edu/media/store/files/2016/CDR_Data.zip)                              |
-| NLM-Chem                 | Chemical               | ✅      | [homepage](https://pubmed.ncbi.nlm.nih.gov/33767203/)                                                                                              | [link](https://ftp.ncbi.nlm.nih.gov/pub/lu/BC7-NLM-Chem-track/BC7T2-NLMChem-corpus_v2.BioC.xml.gz)                   |
-| Linnaeus                 | Species                | ✅      | [homepage](https://linnaeus.sourceforge.net/)                                                                                                      | [link](https://sourceforge.net/projects/linnaeus/files/Corpora/manual-corpus-species-1.0.tar.gz/download)            |
-| S800                     | Species                | ✅      | [homepage](https://species.jensenlab.org/)                                                                                                         | [link](https://species.jensenlab.org/files/S800-1.0.tar.gz)                                                          |
-| BioID                    | Cell, Species, Gene    | ✅      | [homepage](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-1/)                                                              | [link](https://biocreative.bioinformatics.udel.edu/media/store/files/2017/BioIDtraining_2.tar.gz)                    |
-| Osiris                   | Gene, Variant          | ✅      | [homepage](https://sites.google.com/site/laurafurlongweb/databases-and-tools/corpora/)                                                             | [link](https://raw.githubusercontent.com/rockt/SETH/master/resources/OSIRIS/corpus.xml)                              |
-| Thomas2011               | Variant                | ✅      | [homepage](https://www.scai.fraunhofer.de/en/business-research-areas/bioinformatics/downloads/corpus-for-normalization-of-variation-mentions.html) | [link](https://www.scai.fraunhofer.de/content/dam/scai/de/downloads/bioinformatik/normalization-variation-corpus.gz) |
-| tmVar (v3)               | Gene, Species, Variant | ✅      | [homepage](https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/tmvar/)                                                                              | [link](https://ftp.ncbi.nlm.nih.gov/pub/lu/tmVar3/tmVar3Corpus.txt)                                                  |
-| MedMentions              | UMLS                   | ✅      | [homepage](https://github.com/chanzuckerberg/MedMentions)                                                                                          | [link](https://github.com/chanzuckerberg/MedMentions)                                                                |
+| GNormPLus (improved BC2) | Gene                   | ✅     | [homepage](https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/gnormplus/)                                                                          | [link](https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/tmTools/download/GNormPlus/GNormPlusCorpus.zip)              |
+| NLM-Gene                 | Gene                   | ✅     | [homepage](https://pubmed.ncbi.nlm.nih.gov/33839304/)                                                                                              | [link](ftp://ftp.ncbi.nlm.nih.gov/pub/lu/NLMGene)                                                                    |
+| NCBI-Disease             | Disease                | ✅     | [homepage](https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/)                                                                                | [link](https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/NCBI_corpus.zip)                                       |
+| BC5CDR                   | Disease, Chemical      | ✅     | [homepage](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-3-cdr/)                                                           | [link](https://biocreative.bioinformatics.udel.edu/media/store/files/2016/CDR_Data.zip)                              |
+| NLM-Chem                 | Chemical               | ✅     | [homepage](https://pubmed.ncbi.nlm.nih.gov/33767203/)                                                                                              | [link](https://ftp.ncbi.nlm.nih.gov/pub/lu/BC7-NLM-Chem-track/BC7T2-NLMChem-corpus_v2.BioC.xml.gz)                   |
+| Linnaeus                 | Species                | ✅     | [homepage](https://linnaeus.sourceforge.net/)                                                                                                      | [link](https://sourceforge.net/projects/linnaeus/files/Corpora/manual-corpus-species-1.0.tar.gz/download)            |
+| S800                     | Species                | ✅     | [homepage](https://species.jensenlab.org/)                                                                                                         | [link](https://species.jensenlab.org/files/S800-1.0.tar.gz)                                                          |
+| BioID                    | Cell, Species, Gene    | ✅     | [homepage](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/track-1/)                                                              | [link](https://biocreative.bioinformatics.udel.edu/media/store/files/2017/BioIDtraining_2.tar.gz)                    |
+| Osiris                   | Gene, Variant          | ✅     | [homepage](https://sites.google.com/site/laurafurlongweb/databases-and-tools/corpora/)                                                             | [link](https://raw.githubusercontent.com/rockt/SETH/master/resources/OSIRIS/corpus.xml)                              |
+| Thomas2011               | Variant                | ✅     | [homepage](https://www.scai.fraunhofer.de/en/business-research-areas/bioinformatics/downloads/corpus-for-normalization-of-variation-mentions.html) | [link](https://www.scai.fraunhofer.de/content/dam/scai/de/downloads/bioinformatik/normalization-variation-corpus.gz) |
+| tmVar (v3)               | Gene, Species, Variant | ✅     | [homepage](https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/tmvar/)                                                                              | [link](https://ftp.ncbi.nlm.nih.gov/pub/lu/tmVar3/tmVar3Corpus.txt)                                                  |
+| MedMentions              | UMLS                   | ✅     | [homepage](https://github.com/chanzuckerberg/MedMentions)                                                                                          | [link](https://github.com/chanzuckerberg/MedMentions)                                                                |
 
 ## Setup<a name="setup"></a>
 
