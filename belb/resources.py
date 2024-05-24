@@ -4,7 +4,7 @@
 List all resources included in BELB
 """
 
-from dataclasses import dataclass, fields
+from dataclasses import dataclass, field, fields
 from typing import Optional
 
 from belb.utils import download
@@ -15,7 +15,7 @@ DBSNP_FILES = ["refsnp-unsupported.json.bz2", "refsnp-withdrawn.json.bz2"] + [
 ]
 
 
-@dataclass
+@dataclass(frozen=True)
 class Resource:
     """
     Container for resource downloads
@@ -23,7 +23,7 @@ class Resource:
 
     name: str
     base_url: Optional[str] = None
-    files: Optional[list[str]] = None
+    files: list[str] = field(default_factory=list)
     extract: bool = False
 
     def download(self, directory: str, extract: Optional[bool] = None):
