@@ -13,7 +13,7 @@ dependencies = [
   "loguru==0.6.0",
   "omegaconf~=2.2",
   "syntok==1.4.4",
-  "pandas==1.4.1",
+  "pandas>=1.4.1",
   "smart_open==6.2.0",
   "openpyxl==3.0.10",
   "levenshtein==0.21.1",
@@ -21,6 +21,10 @@ dependencies = [
   "wrapt==1.14.1",
   "requests==2.31.0"
 ]
+
+[tool.setuptools.packages.find]
+where = ["belb"]
+namespaces = false
 
 # https://github.com/pypa/setuptools/pull/3309
 [tool.setuptools.package-data]
