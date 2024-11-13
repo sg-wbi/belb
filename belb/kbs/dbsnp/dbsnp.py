@@ -16,12 +16,17 @@ from typing import Iterator, Optional
 from loguru import logger
 from smart_open import smart_open
 
+# from belb.kbs.ncbi_gene import NcbiGeneKbConfig
 from belb.kbs.kb import BelbKb, KbConverter
-from belb.kbs.ncbi_gene import NcbiGeneKbConfig
 from belb.kbs.parser import BaseKbConfig, BaseKbParser
 from belb.kbs.schema import BelbKbSchema
-from belb.preprocessing.data import (CHROMOSOMES, OBSOLETE_IDENTIFIER,
-                                     SYMBOL_CODE, Entry, HistoryEntry)
+from belb.preprocessing.data import (
+    CHROMOSOMES,
+    OBSOLETE_IDENTIFIER,
+    SYMBOL_CODE,
+    Entry,
+    HistoryEntry,
+)
 from belb.resources import Kbs
 from belb.utils import CompressedFileWriter, chunkize
 
@@ -148,15 +153,12 @@ def get_lines(directory: str) -> Iterator[str]:
     """
 
     for c in CHROMOSOMES:
-
         file = os.path.join(directory, f"refsnp-chr{c}.json.bz2")
 
         logger.info("Start parsing file: `{}`", file)
 
         with smart_open(file, encoding="utf-8") as infile:
-
             for line in infile:
-
                 yield line
 
 
@@ -180,7 +182,6 @@ class DbSnpKbParser(BaseKbParser, CompressedFileWriter):
     """
 
     def populate_description_codes(self, description: Optional[str] = None):
-
         self.description_codes.update({"rsid": SYMBOL_CODE, "hgvs": 1})
 
     def parse_entries(
@@ -201,28 +202,26 @@ class DbSnpKbParser(BaseKbParser, CompressedFileWriter):
         uid = 0
 
         with mp.Pool(cores) as pool:
-
             for lines in chunkize(get_lines(directory), chunksize=chunksize):
-
-                for (entries, citations) in pool.imap_unordered(
+                for entries, citations in pool.imap_unordered(
                     parse_line, lines, batch_size
                 ):
-
                     for pmid, rsid in citations.items():
                         corpus[pmid].add(rsid)
 
                     for entry in entries:
-
                         entry["uid"] = uid
 
-                        self.foreign_identifiers.add(entry["foreign_identifier"])
+                        self.foreign_identifiers.add(
+                            entry["foreign_identifier"])
 
                         yield Entry(**entry)
 
                         uid += 1
 
         self.citations.update(
-            {k: [int(rsid) for rsid in v] for k, v in corpus.items() if len(v) > 0}
+            {k: [int(rsid) for rsid in v]
+             for k, v in corpus.items() if len(v) > 0}
         )
 
     def parse_history_entries(self, directory: str, cores: Optional[int] = None):
@@ -240,7 +239,8 @@ class DbSnpKbParser(BaseKbParser, CompressedFileWriter):
             for line in fp:
                 d = json.loads(line)
                 rsid = d["refsnp_id"]
-                merged_into = d.get("merged_snapshot_data", {}).get("merged_into", [])
+                merged_into = d.get("merged_snapshot_data",
+                                    {}).get("merged_into", [])
 
                 if len(merged_into) == 0:
                     new_identifier = OBSOLETE_IDENTIFIER
@@ -279,7 +279,8 @@ def main(args: Namespace):
         db_config=args.db, kb_config=DbSnpKbConfig(data_dir=args.data_dir)
     )
 
-    converter = KbConverter(directory=args.dir, schema=schema, parser=DbSnpKbParser())
+    converter = KbConverter(
+        directory=args.dir, schema=schema, parser=DbSnpKbParser())
 
     converter.to_belb(
         cores=args.cores,
@@ -292,13 +293,13 @@ def main(args: Namespace):
     kb = BelbKb(directory=args.dir, schema=schema, debug=args.debug)
     with kb as handle:
         handle.init_database(chunksize=100000)
-        foreign_schema = BelbKbSchema(db_config=args.db, kb_config=NcbiGeneKbConfig())
-        foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
-        handle.update_foreign_identifiers(foreign_kb=foreign_kb)
+        # foreign_schema = BelbKbSchema(db_config=args.db, kb_config=NcbiGeneKbConfig())
+        # foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
+        # handle.update_foreign_identifiers(foreign_kb=foreign_kb)
 
 
 ###################################################
-### OLD PARSING
+# OLD PARSING
 ###################################################
 # def extract_row_data(json_dict: dict):
 

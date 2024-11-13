@@ -3,6 +3,7 @@
 """
 Build all kbs available in BELB
 """
+
 import argparse
 import multiprocessing as mp
 
@@ -18,7 +19,8 @@ def parse_args() -> argparse.Namespace:
     Parse CLI
     """
 
-    parser = argparse.ArgumentParser(description="Build all available BELB corpora")
+    parser = argparse.ArgumentParser(
+        description="Build all available BELB corpora")
 
     parser.add_argument(
         "--dir", required=True, type=str, help="Directory where BELB data is stored"
@@ -78,19 +80,17 @@ def main():
         level="DEBUG" if args.debug else "INFO",
     )
 
-    # NOTE: ORDER MATTERS!!!
     ready = [
         Kbs.CTD_DISEASES.name,
         Kbs.CTD_CHEMICALS.name,
         Kbs.NCBI_TAXONOMY.name,
         Kbs.CELLOSAURUS.name,
         Kbs.UMLS.name,
-        # Kbs.NCBI_GENE.name,
+        Kbs.NCBI_GENE.name,
         # Kbs.DBSNP.name,
     ]
 
     for kb in Kbs:
-
         if kb.name not in ready:
             continue
 

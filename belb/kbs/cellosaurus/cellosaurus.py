@@ -3,13 +3,14 @@
 """
 Interfaces to Cellosaurus
 """
+
 import os
 from argparse import Namespace
 from collections import defaultdict
 from typing import Iterator, Optional
 
+# from belb.kbs.ncbi_taxonomy import NcbiTaxonomyKbConfig
 from belb.kbs.kb import BelbKb, KbConverter
-from belb.kbs.ncbi_taxonomy import NcbiTaxonomyKbConfig
 from belb.kbs.parser import BaseKbConfig, BaseKbParser
 from belb.kbs.schema import BelbKbSchema
 from belb.preprocessing.data import SYMBOL_CODE, Entry, HistoryEntry
@@ -128,16 +129,13 @@ def parse_file(path: str) -> Iterator[dict]:
     item: dict = {}
 
     with open(path) as infile:
-
         for idx, line in enumerate(infile):
-
             if idx < 54:
                 continue
 
             line = line.strip()
 
             if line == "//":
-
                 yield item
 
                 item.clear()
@@ -156,7 +154,6 @@ def parse_history_file(path: str) -> Iterator[HistoryEntry]:
 
     with open(path) as infile:
         for idx, line in enumerate(infile):
-
             if idx < 11:
                 continue
             if line == "\n":
@@ -193,13 +190,11 @@ class CellosaurusKbParser(BaseKbParser):
     """
 
     def populate_description_codes(self, description: Optional[str] = None):
-
         self.description_codes.update({"symbol": SYMBOL_CODE, "synonym": 1})
 
     def parse_entries(
         self, directory: str, cores: Optional[int] = None
     ) -> Iterator[Entry]:
-
         path = os.path.join(directory, "cellosaurus.txt")
 
         citations: dict = defaultdict(set)
@@ -210,7 +205,6 @@ class CellosaurusKbParser(BaseKbParser):
         int_id = 0
 
         for row in parse_file(path):
-
             entries, original_identifiers, entry_citations = parse_row(row)
 
             for i in original_identifiers:
@@ -232,11 +226,9 @@ class CellosaurusKbParser(BaseKbParser):
         self.citations.update({k: list(v) for k, v in citations.items() if len(v) > 0})
 
     def parse_history_entries(self, directory: str, cores: Optional[int] = None):
-
         path = os.path.join(directory, "cellosaurus_deleted_ACs.txt")
 
         for entry in parse_history_file(path):
-
             yield entry
 
 
@@ -262,8 +254,8 @@ def main(args: Namespace):
     kb = BelbKb(directory=args.dir, schema=schema, debug=args.debug)
     with kb as handle:
         handle.init_database(dedup=True)
-        foreign_schema = BelbKbSchema(
-            db_config=args.db, kb_config=NcbiTaxonomyKbConfig()
-        )
-        foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
-        handle.update_foreign_identifiers(foreign_kb=foreign_kb)
+        # foreign_schema = BelbKbSchema(
+        #     db_config=args.db, kb_config=NcbiTaxonomyKbConfig()
+        # )
+        # foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
+        # handle.update_foreign_identifiers(foreign_kb=foreign_kb)

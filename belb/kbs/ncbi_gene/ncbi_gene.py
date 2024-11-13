@@ -3,6 +3,7 @@
 """
 Interfaces to NCBI Gene
 """
+
 import multiprocessing as mp
 import os
 from argparse import Namespace
@@ -10,12 +11,16 @@ from typing import Iterator, Optional
 
 import pandas as pd
 
+# from belb.kbs.ncbi_taxonomy import NcbiTaxonomyKbConfig
 from belb.kbs.kb import BelbKb, KbConverter
-from belb.kbs.ncbi_taxonomy import NcbiTaxonomyKbConfig
 from belb.kbs.parser import BaseKbConfig, BaseKbParser
 from belb.kbs.schema import BelbKbSchema
-from belb.preprocessing.data import (OBSOLETE_IDENTIFIER, SYMBOL_CODE, Entry,
-                                     HistoryEntry)
+from belb.preprocessing.data import (
+    OBSOLETE_IDENTIFIER,
+    SYMBOL_CODE,
+    Entry,
+    HistoryEntry,
+)
 from belb.resources import Kbs
 from belb.utils import load_kb_subsets
 
@@ -190,7 +195,8 @@ class NcbiGeneKbParser(BaseKbParser):
     """
 
     def populate_description_codes(
-        self, description: Optional[str] = None  # pylint: disable=unused-argument
+        self,
+        description: Optional[str] = None,  # pylint: disable=unused-argument
     ):
         """
         Define description codes
@@ -236,7 +242,8 @@ class NcbiGeneKbParser(BaseKbParser):
                         entry["description"] = self.description_codes[
                             entry["description"]
                         ]
-                        self.foreign_identifiers.add(entry["foreign_identifier"])
+                        self.foreign_identifiers.add(
+                            entry["foreign_identifier"])
 
                         yield Entry(**entry)
 
@@ -290,8 +297,8 @@ def main(args: Namespace):
     kb = BelbKb(directory=args.dir, schema=schema, debug=args.debug)
     with kb as handle:
         handle.init_database(chunksize=100000)
-        foreign_schema = BelbKbSchema(
-            db_config=args.db, kb_config=NcbiTaxonomyKbConfig()
-        )
-        foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
-        handle.update_foreign_identifiers(foreign_kb=foreign_kb)
+        # foreign_schema = BelbKbSchema(
+        #     db_config=args.db, kb_config=NcbiTaxonomyKbConfig()
+        # )
+        # foreign_kb = BelbKb(directory=args.dir, schema=foreign_schema, debug=args.debug)
+        # handle.update_foreign_identifiers(foreign_kb=foreign_kb)
