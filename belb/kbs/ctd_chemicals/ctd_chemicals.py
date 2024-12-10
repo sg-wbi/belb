@@ -151,4 +151,4 @@ def main(args: Namespace):
 
     kb = BelbKb(directory=args.dir, schema=schema, debug=args.debug)
     with kb as handle:
-        handle.init_database()
+        handle.init_database(dedup=True)
