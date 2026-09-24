@@ -1,0 +1,5 @@
+inkb: true
+endtoend: false
+document_level: false
+composite_mentions: 'OR' # AND, false
+boundary_tolerance: null

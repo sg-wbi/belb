@@ -1,0 +1,95 @@
+bc5cdr:
+  data_dir: '/home/debian/share/belb/bc5cdr'
+  data_files:
+    - name: 'train'
+      uri: 'CDR_TrainingSet.PubTator.txt'
+
+    - name: 'validation'
+      uri: 'CDR_DevelopmentSet.PubTator.txt'
+
+    - name: 'test'
+      uri: 'CDR_TestSet.PubTator.txt'
+
+ncbi-disease:
+  data_dir: '/home/debian/share/belb/ncbi-disease'
+  data_files:
+    - name: 'train'
+      uri: 'NCBItrainset_corpus.zip'
+
+    - name: 'validation'
+      uri: 'NCBIdevelopset_corpus.zip'
+
+    - name: 'test'
+      uri: 'NCBItestset_corpus.zip'
+
+nlm-chem:
+  data_dir: '/home/debian/share/belb/nlm-chem'
+  data_files:
+    - name: 'folder'
+      uri: 'BC7T2-NLMChem-corpus_v2.BioC.xml.gz'
+
+nlm-gene:
+  data_dir: '/home/debian/share/belb/nlm-gene'
+  data_files:
+    - name: 'folder'
+      uri: 'NLM-Gene-Corpus.zip'
+
+gnormplus:
+  data_dir: '/home/debian/share/belb/gnormplus'
+  data_files:
+    - name: 'folder'
+      uri: 'GNormPlusCorpus.zip'
+
+linnaeus:
+  data_dir: '/home/debian/share/belb/linnaeus'
+  data_files:
+    - name: 'folder'
+      uri: 'manual-corpus-species-1.1.tar.gz'
+
+s800:
+  data_dir: '/home/debian/share/belb/s800'
+  data_files:
+    - name: 'folder'
+      uri: 'S800-1.0.tar.gz'
+
+s1000:
+  data_dir: '/home/debian/share/belb/s1000'
+  data_files: 
+    - name: 'folder'
+      uri: 'S1000-corpus.tar.gz'
+
+medmentions:
+  data_dir: '/home/debian/share/belb/medmentions'
+  data_files:
+    - name: 'folder'
+      uri: 'master.zip'
+
+biored:
+  data_dir: '/home/debian/share/belb/biored'
+  data_files:
+    - name: 'folder'
+      uri: 'BIORED.zip'
+
+tmvar3:
+  data_dir: '/home/debian/share/belb/tmvar3'
+  data_files:
+    - name: 'file'
+      uri: 'tmVar3Corpus.txt'
+
+osiris:
+  data_dir: '/home/debian/share/belb/osiris'
+  data_files:
+    - name: 'file'
+      uri: 'corpus.xml'
+
+snp:
+  data_dir: '/home/debian/share/belb/snp'
+  data_files:
+    - name: 'folder'
+      uri: 'normalization-variation-corpus.gz'
+
+bioid:
+  data_dir: '/home/debian/share/belb/bioid/'
+  data_files:
+    - name: 'folder'
+      uri: 'BioIDtraining_2.tar.gz'

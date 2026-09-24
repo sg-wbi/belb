@@ -1,0 +1,91 @@
+mesh:
+  data_dir: '/home/debian/share/belb/mesh'
+  data_files:
+    - name: 'desc_file'
+      uri: 'desc2021.xml' 
+
+    - name: 'supp_file'
+      uri: 'supp2021.xml'
+
+ncbi-gene:
+  data_dir: '/home/debian/share/belb/ncbi-gene'
+  data_files:
+    - name: 'info_file'
+      uri: 'gene_info.gz'
+
+    - name: 'summary_file'
+      uri: 'gene_summary.gz'
+
+    - name: 'history_file'
+      uri: 'gene_history.gz'
+
+ncbi-taxonomy:
+  data_dir: '/home/debian/share/belb/ncbi-taxonomy'
+  data_files:
+    - name: 'tar_file'
+      uri: 'taxdump.tar.gz'
+
+cellosaurus:
+  data_dir: '/home/debian/share/belb/cellosaurus'
+  data_files:
+    - name: 'file'
+      uri : 'cellosaurus.txt'
+
+    - name: 'history_file'
+      uri: 'cellosaurus_deleted_ACs.txt'
+
+
+ctd-chemicals:
+  data_dir: '/home/debian/share/belb/ctd-chemicals'
+  data_files:
+    - name: 'file'
+      uri: 'CTD_chemicals.tsv'
+
+ctd-diseases:
+  data_dir: '/home/debian/share/belb/ctd-diseases'
+  data_files:
+    - name: 'file'
+      uri: 'CTD_diseases.tsv'
+
+umls:
+  data_dir: '/home/debian/share/belb/umls/2017AA-full/2017AA/META/'
+  data_files:
+    - name: 'mrconso_aa'
+      uri: 'MRCONSO.RRF.aa.gz'
+
+    - name: 'mrconso_ab'
+      uri: 'MRCONSO.RRF.ab.gz'
+
+    - name: 'mrdef'
+      uri: 'MRDEF.RRF.gz'
+
+    - name: 'mrsty'
+      uri: 'MRSTY.RRF.gz'
+
+    - name: 'mrcui'
+      uri: 'MRCUI.RRF.gz'
+
+    - name: 'semgroups'
+      uri: 'SemGroups.txt'
+
+mondo:
+  data_dir: '/home/debian/share/belb/mondo'
+  data_files:
+    - name: 'file'
+      uri: 'mondo.json'
+
+#NOTE: this is huge, avoid uploading
+dbsnp:
+  data_dir: '/home/debian/share/belb/dbsnp/'
+  data_files:
+    - name: 'chr'
+      uri: 'refsnp-chr*.json.bz2'
+
+    # - name: 'withdrawn'
+    #   uri: 'refsnp-withdrawn.json.bz2'
+    #
+    # - name: 'unsupported'
+    #   uri: 'refsnp-unsupported.json.bz2'
+    #
+    # - name: 'merged'
+    #   uri: 'refsnp-merged.json.bz2'

@@ -1,0 +1,51 @@
+mesh:
+  hf_repo_id: 'bel-bench/mesh'
+  data_files:
+    - name: 'desc_file'
+      uri: 'https://nlmpubs.nlm.nih.gov/projects/mesh/2021/xmlmesh/desc2021.xml' 
+
+    - name: 'supp_file'
+      uri: 'https://nlmpubs.nlm.nih.gov/projects/mesh/2021/xmlmesh/supp2021.xml'
+
+ncbi-gene:
+  hf_repo_id: 'bel-bench/ncbi-gene'
+  data_files:
+    - name: 'info_file'
+      uri: 'https://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz'
+
+    - name: 'summary_file'
+      uri: 'https://ftp.ncbi.nih.gov/gene/DATA/gene_summary.gz'
+
+    - name: 'history_file'
+      uri: 'https://ftp.ncbi.nih.gov/gene/DATA/gene_history.gz'
+
+ncbi-taxonomy:
+  hf_repo_id: 'bel-bench/ncbi-taxonomy'
+  data_files:
+    - name: 'tar_file'
+      uri: 'https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz'
+
+cellosaurus:
+  hf_repo_id: 'bel-bench/cellosaurus'
+  data_files:
+    - name: 'file'
+      uri : 'https://ftp.expasy.org/databases/cellosaurus/cellosaurus.txt'
+
+    - name: 'history_file'
+      uri: 'https://ftp.expasy.org/databases/cellosaurus/cellosaurus_deleted_ACs.txt'
+
+mondo:
+  hf_repo_id: 'bel-bench/mondo'
+  data_files:
+    - name: 'file'
+      uri: 'https://purl.obolibrary.org/obo/mondo.json'
+
+ctd-chemicals:
+  data_files:
+    - name: 'file'
+      uri: 'https://ctdbase.org/reports/CTD_chemicals.tsv.gz'
+
+ctd-diseases:
+  data_files:
+    - name: 'file'
+      uri: 'https://ctdbase.org/reports/CTD_diseases.tsv.gz'

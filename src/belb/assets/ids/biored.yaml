@@ -1,0 +1,15 @@
+entity_types:
+  chemical: mesh[D]
+
+mesh[D]:
+  'C043211' : 'NIL' # not found
+  'C064276' : 'NIL' # not found
+  'D002188' : 'NIL' # not under chemicals 
+
+ctd-chemicals:
+  'C043211' : 'NIL' # not found
+  'C064276' : 'NIL' # not found
+  'D002188' : 'NIL' # not under chemicals 
+  'D013482' : 'NIL'
+  'D043564' : 'NIL'
+  'D000069283' : 'NIL'

@@ -1,0 +1,191 @@
+#####################################
+# DISEASE
+#####################################
+- name: ncbi-disease.ctd-diseases
+  kb: ctd-diseases
+  corpus: ncbi-disease
+  corpus_args:
+    id_mapping: ctd-diseases
+
+- name: ncbi-disease.mesh
+  kb: mesh
+  kb_args:
+    branches:
+      - C
+      - F03
+  corpus: ncbi-disease
+  corpus_args:
+    id_mapping: mesh[C,F03]
+
+- name: bc5cdr-disease.ctd-diseases
+  kb: ctd-diseases
+  corpus: bc5cdr
+  corpus_args:
+    entity_types:
+      - disease
+    id_mapping: ctd-diseases
+
+- name: bc5cdr-disease.mesh
+  kb: mesh
+  kb_args:
+    branches:
+      - C
+      - F03
+  corpus: bc5cdr
+  corpus_args:
+    entity_types:
+      - disease
+    id_mapping: mesh[C,F03]
+
+
+# - name: biored-disease.ctd-diseases
+#   kb: ctd-diseases
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - disease
+    
+# - name: biored-disease.mesh
+#   kb: mesh
+#   kb_args:
+#     branches:
+#       - C
+#       - F03
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - disease
+#     id_mapping: mesh[C,F03]
+
+#####################################
+# CHEMICAL
+#####################################
+
+- name: bc5cdr-chemical.ctd-chemicals
+  kb: ctd-chemicals
+  corpus: bc5cdr
+  corpus_args:
+    entity_types:
+      - chemical
+    id_mapping: ctd-chemicals
+
+- name: bc5cdr-chemical.mesh
+  kb: mesh
+  kb_args:
+    branches:
+      - D
+  corpus: bc5cdr
+  corpus_args:
+    entity_types:
+      - chemical
+    id_mapping: mesh[D]
+
+- name: nlm-chem.ctd-chemicals
+  kb: ctd-chemicals
+  corpus: nlm-chem
+  corpus_args:
+    id_mapping: ctd-chemicals
+
+- name: nlm-chem.mesh
+  kb: mesh
+  kb_args:
+    branches:
+      - D
+  corpus: nlm-chem
+  corpus_args:
+    id_mapping: mesh[D]
+
+# - name: biored-chemical.ctd-chemicals
+#   kb: ctd-chemicals
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - chemical
+#     id_mapping: ctd-chemicals
+
+# - name: biored-chemical.mesh
+#   kb: mesh
+#   kb_args:
+#     branches:
+#       - D
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - chemical
+#     id_mapping: 'mesh[D]'
+
+
+#####################################
+# SPECIES
+#####################################
+
+- name: linnaeus.ncbi-taxonomy
+  kb: ncbi-taxonomy
+  corpus: linnaeus
+
+- name: s800.ncbi-taxonomy
+  kb: ncbi-taxonomy
+  corpus: s800
+
+- name: s1000.ncbi-taxonomy
+  kb: ncbi-taxonomy
+  corpus: s1000
+
+# - name: biored-species.ncbi-taxonomy
+#   kb: 'ncbi-taxonomy'
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - species
+
+#####################################
+# GENE
+#####################################
+
+- name: gnormplus.ncbi-gene
+  kb: ncbi-gene
+  kb_args:
+    dedup_columns:
+      - chr
+  corpus: gnormplus
+
+- name: gnormplus.ncbi-gene-subset
+  kb: ncbi-gene
+  kb_args:
+    subset: gnormplus 
+    dedup_columns:
+      - chr
+  corpus: gnormplus
+
+- name: nlm-gene.ncbi-gene
+  kb: ncbi-gene
+  kb_args:
+    dedup_columns:
+      - chr
+  corpus: nlm-gene
+
+- name: nlm-gene.ncbi-gene-subset
+  kb: ncbi-gene
+  kb_args:
+    subset: nlm-gene
+    dedup_columns:
+      - chr
+  corpus: nlm-gene
+
+# - name: biored-species.ncbi-gene-subset
+#   kb: 'ncbi-gene'
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - gene
+
+#####################################
+# CELL-LINE
+#####################################
+
+# - name: biored-cell-line.cellosaurus
+#   kb: cellosaurus
+#   corpus: biored
+#   corpus_args:
+#     entity_types:
+#       - cell-line

@@ -1,0 +1,8 @@
+entity_types:
+  cell-line: cellosaurus
+
+
+cellosaurus:
+  'CVCL_0222' : 'NIL'
+  'CVCL_D594' : 'CVCL_B385'
+  'CVCL_7903' : 'CVCL_1167'

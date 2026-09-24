@@ -1,0 +1,32 @@
+[project]
+name = "belb"
+version = "2.0.0"
+description = "Biomedical Entity Linking Benchmark based on HuggingFace `datasets` library."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bioc>=2.1",
+    "datasets>=4.8.5",
+    "duckdb>=1.5.5",
+    "loguru>=0.7.3",
+    "omegaconf>=2.3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+belb = [
+    "assets/**/*.yaml",
+    "assets/**/*.json",
+]
+
